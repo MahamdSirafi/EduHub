@@ -74,14 +74,13 @@ app.use(
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
-const applayRouter= require('./routes/applayRouter')
+const applyRouter= require('./routes/applyRouter')
 const courseRouter= require('./routes/courseRouter')
 const notificationRouter= require('./routes/notificationRouter')
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
-app.use('/', userRouter);
-app.use('/api/v1.0.0/applays', applayRouter);
+app.use('/api/v1.0.0/applies', applyRouter);
 app.use('/api/v1.0.0/courses', courseRouter);
 app.use('/api/v1.0.0/notifications', notificationRouter);
 app.use('/api/v1.0.0/users', userRouter);

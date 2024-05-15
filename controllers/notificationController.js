@@ -7,14 +7,4 @@ exports.createnotification = handlerFactory.createOne(Notification);
 exports.updatenotification = handlerFactory.updateOne(Notification);
 exports.deletenotification = handlerFactory.deleteOne(Notification);
 exports.getAllnotification = handlerFactory.getAll(Notification);
-exports.defult = catchAsync(async (req, res, next) => {
-  //write your code here
-  const doc = []
-  if(!doc){
-    return (new AppError("Message Error",400))
-    }
-  res.status(200).json({
-    status: "success",
-    doc,
-  });
-});
+

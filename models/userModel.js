@@ -4,7 +4,6 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema(
   {
-    
     name: {
       type: String,
       required: [true, 'Please tell us your name!'],
@@ -12,27 +11,50 @@ const userSchema = new mongoose.Schema(
     },
     age: {
       type: Number,
+      required: function () {
+        return this.role == 'admin'
+          ? false
+          : [true, 'Please tell us your age!'];
+      },
     },
     specialization: {
       type: String,
-      required: [true, 'Please tell us your specialization!'],
+      required: function () {
+        return this.role == 'admin'
+          ? false
+          : [true, 'Please tell us your specialization!'];
+      },
       trim: true,
     },
     sex: {
-   
       type: String,
-      required: [true, 'Please tell us your sex!'],
+      required: function () {
+        return this.role == 'admin'
+          ? false
+          : [true, 'Please tell us your sex!'];
+      },
+
+      trim: true,
+    },
+    address: {
+      type: String,
+      required: function () {
+        return this.role == 'admin'
+          ? false
+          : [true, 'Please tell us your address!'];
+      },
       trim: true,
     },
     subject: {
       type: Array,
-      select:()=>{
-       return this.role =="teacher"?true:false
-      }
-    },
-    address: {
-      type: String,
-      required: [true, 'Please tell us your specialization!'],
+      required: function () {
+        return this.role != 'teacher'
+          ? false
+          : [true, 'Please tell us your subject!'];
+      },
+      select: function () {
+        return this.role == 'teacher' ? true : false;
+      },
       trim: true,
     },
     email: {
@@ -48,7 +70,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['user', 'admin',"teacher"],
+      enum: ['user', 'admin', 'teacher'],
       default: 'user',
     },
     password: {

@@ -27,11 +27,9 @@ createSendToken = (user, statusCode, req, res) => {
   });
 };
 exports.signup = catchAsync(async (req, res, next) => {
-  const newUser = await User.create({
-    name: req.body.name,
-    email: req.body.email,
-    password: req.body.password,
-  });
+  if (req.body.role == 'admin')
+    return next(new AppError('you can not sign up like admin', 400));
+  const newUser = await User.create(req.body);
   const url = `${req.protocol}://${req.get('host')}/me`;
   // await new Email(newUser, url).sendWelcome();
   createSendToken(newUser, 201, req, res);
@@ -55,7 +53,13 @@ exports.logout = (req, res) => {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   });
-  res.status(200).json({ status: 'success' });
+  res
+    .status(200)
+    .json({
+      status: 'success',
+      tokev:
+        'qrdtwihy3287tr6iquosgfyr328u9i0qfndkjlsmaopei398rfwidokpjhuerio90woi9r8ut7ewi9',
+    });
 };
 
 //password

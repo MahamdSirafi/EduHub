@@ -34,10 +34,7 @@ router.patch('/updateMe', authMiddlewers.protect, userController.updateMe);
 router.delete('/deleteMe', authMiddlewers.protect, userController.deleteMe);
 router
   .route('/')
-  .get(
-    authMiddlewers.protect,
-    userController.getAllUsers
-  )
+  .get(authMiddlewers.protect, userController.getAllUsers)
   .post(
     authMiddlewers.protect,
     authMiddlewers.isactive,

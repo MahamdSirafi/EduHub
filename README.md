@@ -56,7 +56,13 @@ The project includes robust error handling mechanisms to gracefully handle and r
 
 ## Database Seed
 
-- create an admin user in the database
+- create an admin user in the database by 
+
+```
+$ node seeds.js
+
+```
+
 
 ## Install
 
