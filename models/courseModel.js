@@ -24,7 +24,7 @@ default:0
       required : [true , 'must enter classification'],
       type : String,
     }
-      
+    //addTabls  
     }}],
     videos :[{type: {name:{
       required : [true , 'must enter classification'],
