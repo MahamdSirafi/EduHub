@@ -4,9 +4,35 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema(
   {
+    
     name: {
       type: String,
       required: [true, 'Please tell us your name!'],
+      trim: true,
+    },
+    age: {
+      type: Number,
+    },
+    specialization: {
+      type: String,
+      required: [true, 'Please tell us your specialization!'],
+      trim: true,
+    },
+    sex: {
+   
+      type: String,
+      required: [true, 'Please tell us your sex!'],
+      trim: true,
+    },
+    subject: {
+      type: Array,
+      select:()=>{
+       return this.role =="teacher"?true:false
+      }
+    },
+    address: {
+      type: String,
+      required: [true, 'Please tell us your specialization!'],
       trim: true,
     },
     email: {
@@ -22,7 +48,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['user', 'admin'],
+      enum: ['user', 'admin',"teacher"],
       default: 'user',
     },
     password: {
