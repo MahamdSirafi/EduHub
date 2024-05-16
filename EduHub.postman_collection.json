@@ -655,7 +655,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"admin@gmail.com\",\r\n  \"password\": \"123454321\"\r\n}",
+							"raw": "{\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"123454321\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -686,6 +686,38 @@
 			"item": [
 				{
 					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/courses/mine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"courses",
+								"mine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all mine",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -732,7 +764,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"tttt\",\r\n  \"classification\": \"sss\",\r\n  \"reference\":[{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"},{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"}] ,\r\n \"videos\":[\r\n    {\r\n    \"name\":\"dsgsdgsd\",\r\n    \"video\":\"http://sss.com\",\r\n    \"level\":\"midel\",\r\n    \"questions\":[{\r\n      \"question\" :\"question 1\",\r\n      \"A\":\"a\",\r\n      \"B\":\"b\",\r\n      \"C\":\"c\",\r\n      \"D\":\"d\",\r\n      \"answer\":\"b\"\r\n     },\r\n     {\r\n     \"question\" :\"question 2\",\r\n     \"A\":\"a\",\r\n     \"B\":\"b\",\r\n     \"C\":\"c\",\r\n     \"D\":\"d\",\r\n     \"answer\":\"c\"\r\n     }\r\n    ]\r\n    },\r\n    {\"name\":\"name\",\r\n    \"video\":\"http://sss.com\",\r\n     \"level\":\"midel\",\r\n     \"questions\":[{\r\n        \"question\" :\"question 1\",\r\n        \"A\":\"a\",\r\n        \"B\":\"b\",\r\n        \"C\":\"c\",\r\n        \"D\":\"d\",\r\n        \"answer\":\"b\"\r\n        },\r\n        {\r\n         \"question\" :\"question 2\",\r\n         \"A\":\"a\",\r\n         \"B\":\"b\",\r\n         \"C\":\"c\",\r\n         \"D\":\"d\",\r\n         \"answer\":\"c\"\r\n        }\r\n        ]\r\n}\r\n],\r\n  \"test\":{\r\n      \"name\":\"name test\",\r\n      \"rate\":90\r\n  }\r\n}",
+							"raw": "{\r\n  \"name\": \"tttt\",\r\n  \"classification\": \"sss\",\r\n  \"reference\":[{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"},{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"}] ,\r\n \"videos\":[\r\n    {\r\n    \"name\":\"dsgsdgsd\",\r\n    \"video\":\"http://sss.com\",\r\n    \"level\":\"midel\",\r\n    \"questions\":[{\r\n      \"question\" :\"question 1\",\r\n      \"A\":\"a\",\r\n      \"B\":\"b\",\r\n      \"C\":\"c\",\r\n      \"D\":\"d\",\r\n      \"answer\":\"b\"\r\n     },\r\n     {\r\n     \"question\" :\"question 2\",\r\n     \"A\":\"a\",\r\n     \"B\":\"b\",\r\n     \"C\":\"c\",\r\n     \"D\":\"d\",\r\n     \"answer\":\"c\"\r\n     }\r\n    ]\r\n    },\r\n    {\"name\":\"name\",\r\n    \"video\":\"http://sss.com\",\r\n     \"level\":\"midel\",\r\n     \"questions\":[{\r\n        \"question\" :\"question 1\",\r\n        \"A\":\"a\",\r\n        \"B\":\"b\",\r\n        \"C\":\"c\",\r\n        \"D\":\"d\",\r\n        \"answer\":\"b\"\r\n        },\r\n        {\r\n         \"question\" :\"question 2\",\r\n         \"A\":\"a\",\r\n         \"B\":\"b\",\r\n         \"C\":\"c\",\r\n         \"D\":\"d\",\r\n         \"answer\":\"c\"\r\n        }\r\n        ]\r\n}\r\n],\r\n  \"test\":{\r\n      \"name\":\"name test\",\r\n      \"rate\":90,\r\n        \"questions\":[{\r\n        \"question\" :\"question 1\",\r\n        \"A\":\"a\",\r\n        \"B\":\"b\",\r\n        \"C\":\"c\",\r\n        \"D\":\"d\",\r\n        \"answer\":\"b\"\r\n        },\r\n        {\r\n         \"question\" :\"question 2\",\r\n         \"A\":\"a\",\r\n         \"B\":\"b\",\r\n         \"C\":\"c\",\r\n         \"D\":\"d\",\r\n         \"answer\":\"c\"\r\n        }\r\n        ]\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -771,7 +803,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/courses/6644714d7551cfc99395af37",
+							"raw": "http://localhost:7000/api/v1.0.0/courses/6645eae9743f374ea4445173",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -781,7 +813,7 @@
 								"api",
 								"v1.0.0",
 								"courses",
-								"6644714d7551cfc99395af37"
+								"6645eae9743f374ea4445173"
 							]
 						}
 					},
@@ -803,7 +835,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/courses/6644714d7551cfc99395af37/test",
+							"raw": "http://localhost:7000/api/v1.0.0/courses/6645eae9743f374ea4445173/test",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -813,7 +845,7 @@
 								"api",
 								"v1.0.0",
 								"courses",
-								"6644714d7551cfc99395af37",
+								"6645eae9743f374ea4445173",
 								"test"
 							]
 						}
@@ -1101,6 +1133,266 @@
 								"v1.0.0",
 								"notifications",
 								"6644714d7551cfc99395af37"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "apply",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies?course=6645eae9743f374ea4445173",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies"
+							],
+							"query": [
+								{
+									"key": "course",
+									"value": "6645eae9743f374ea4445173"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all mine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies/mine",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies",
+								"mine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"course\": \"6645eae9743f374ea4445173\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/notifications/6644714d7551cfc99395af37",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"notifications",
+								"6644714d7551cfc99395af37"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"complated\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies/6645eb4c2e350bfa25ac1cee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies",
+								"6645eb4c2e350bfa25ac1cee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update  Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"complated\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies/6645eb4c2e350bfa25ac1cee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies",
+								"6645eb4c2e350bfa25ac1cee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/applies/6645eb4c2e350bfa25ac1cee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"applies",
+								"6645eb4c2e350bfa25ac1cee"
 							]
 						}
 					},

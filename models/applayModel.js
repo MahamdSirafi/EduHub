@@ -6,20 +6,19 @@ const applaySchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: 'User',
     },
-    post: {
-      required: [true, 'must enter post'],
+    course: {
+      required: [true, 'must enter course'],
       type: mongoose.Schema.ObjectId,
-      ref: 'Post',
+      ref: 'Course',
     },
     rate: {
-      required: [true, 'must enter rate'],
       type: Number,
     },
-    status: {
-      type: String,
+    complated: {
+      type: Boolean,
+      default: false,
     },
     rasult: {
-      required: [true, 'must enter rasult'],
       type: Number,
     },
   },

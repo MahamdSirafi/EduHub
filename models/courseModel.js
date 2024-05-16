@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Not = require('./notificationModel');
+const User = require('./userModel');
 const courseSchema = new mongoose.Schema(
   {
     teacher: {
@@ -133,5 +135,11 @@ const courseSchema = new mongoose.Schema(
     versionKey: false,
   }
 );
+courseSchema.post('save', async function (doc) {
+  const docuser = await User.find({ role: 'user' }, { _id: 1 });
+  docuser.forEach(async (item) => {
+    await Not.create({ user: item._id, message: `new course  ${doc.name}` });
+  });
+});
 const Course = mongoose.model('Course', courseSchema);
 module.exports = Course;

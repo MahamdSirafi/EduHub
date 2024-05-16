@@ -1,13 +1,14 @@
 const courseController = require('../controllers/courseController');
 const authMiddlewers = require('./../middlewares/authMiddlewers');
 const dynamicMiddleware = require('./../middlewares/dynamicMiddleware');
+const applymid = require('./../middlewares/applymid');
 const express = require('express');
 const router = express.Router();
 router.use(authMiddlewers.protect);
 router
   .route('/mine')
   .get(
-    authMiddlewers.restrictTo("teacher"),
+    authMiddlewers.restrictTo('teacher'),
     dynamicMiddleware.addQuery('teacher', 'userId'),
     courseController.getAllcourse
   );
@@ -27,6 +28,7 @@ router
   .route('/:id')
   .get(
     dynamicMiddleware.addQuery('fields', '-test'),
+    applymid.isApply,
     courseController.getcourse
   )
   .patch(authMiddlewers.restrictTo('teacher'), courseController.updatecourse)
@@ -37,6 +39,7 @@ router
 router
   .route('/:id/test')
   .get(
+    applymid.iscomplated,
     dynamicMiddleware.addQuery('fields', 'test'),
     courseController.getcourse
   );
