@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
           ? false
           : [true, 'Please tell us your sex!'];
       },
-
+      enum: ["male", "female"],
       trim: true,
     },
     address: {

@@ -21,6 +21,10 @@
  *               - name
  *               - email
  *               - password
+ *               - age
+ *               - specialization
+ *               - sex
+ *               - address
  *             properties:
  *               name:
  *                 type: string
@@ -33,6 +37,83 @@
  *                 format: password
  *                 minLength: 8
  *                 description: At least one number and one letter
+ *               specialization:
+ *                 type: string
+ *               sex:
+ *                 type: string
+ *                 enum: [male, female]
+ *               address:
+ *                 type: string
+ *               age:
+ *                 type: number
+ *             example:
+ *               name: fake name
+ *               email: fake@example.com
+ *               password: password1
+ *     responses:
+ *       "201":
+ *         description: Created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: success
+ *                 user:
+ *                   $ref: '#/components/schemas/User'
+ *                 tokens:
+ *                   type: string
+ *                   example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MWQ4ZDJjZjBkMmM5NWNiOTM5OTgyZSIsImlhdCI6MTcxMzIxMjcxNywiZXhwIjoxNzIwOTg4NzE3fQ.FbARIC4jDWtOb0koNJK69F2MTu8j9LeS3RaFrT-AP7c
+ *       "400":
+ *         $ref: '#/components/responses/DuplicateEmail'
+ */
+
+/**
+ * @swagger
+ *   /users/signup:
+ *   post:
+ *     summary: Register as teacher
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *               - email
+ *               - password
+ *               - age
+ *               - specialization
+ *               - sex
+ *               - address
+ *               - subject
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: must be unique
+ *               password:
+ *                 type: string
+ *                 format: password
+ *                 minLength: 8
+ *                 description: At least one number and one letter
+ *               specialization:
+ *                 type: string
+ *               sex:
+ *                 type: string
+ *                 enum: [male, female]
+ *               address:
+ *                 type: string
+ *               age:
+ *                 type: number
+ *               subject:
+ *                 type: Array
  *             example:
  *               name: fake name
  *               email: fake@example.com
