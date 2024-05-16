@@ -53,13 +53,11 @@ exports.logout = (req, res) => {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
   });
-  res
-    .status(200)
-    .json({
-      status: 'success',
-      tokev:
-        'qrdtwihy3287tr6iquosgfyr328u9i0qfndkjlsmaopei398rfwidokpjhuerio90woi9r8ut7ewi9',
-    });
+  res.status(200).json({
+    status: 'success',
+    token:
+      'qrdtwihy3287tr6iquosgfyr328u9i0qfndkjlsmaopei398rfwidokpjhuerio90woi9r8ut7ewi9',
+  });
 };
 
 //password
@@ -77,11 +75,11 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     const resetURL = `${req.protocol}://${req.get('host')}${req.originalUrl
       .split('/', 4)
       .join('/')}/resetPassword/${resetToken}`;
-    await new Email(user, resetURL).sendPasswordReset();
+    // await new Email(user, resetURL).sendPasswordReset();
     res.status(200).json({
       status: 'success',
       message: 'Token sent to email!',
-      // url: resetURL,
+      url: resetURL,
     });
   } catch (err) {
     user.passwordResetToken = undefined;
