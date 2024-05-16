@@ -5,6 +5,14 @@ const express = require('express');
 const router = express.Router();
 router.use(authMiddlewers.protect);
 router
+  .route('/mine')
+  .get(
+    authMiddlewers.restrictTo("teacher"),
+    dynamicMiddleware.addQuery('teacher', 'userId'),
+    courseController.getAllcourse
+  );
+
+router
   .route('/')
   .get(
     dynamicMiddleware.addQuery('fields', '-test -videos'),
