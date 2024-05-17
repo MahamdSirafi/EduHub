@@ -69,14 +69,14 @@ app.use(xss());
 app.use(
   hpp({
     whitelist: ['duration', 'difficulty', 'price'],
-  }),
+  })
 );
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
-const applyRouter= require('./routes/applyRouter')
-const courseRouter= require('./routes/courseRouter')
-const notificationRouter= require('./routes/notificationRouter')
+const applyRouter = require('./routes/applyRouter');
+const courseRouter = require('./routes/courseRouter');
+const notificationRouter = require('./routes/notificationRouter');
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
@@ -90,36 +90,53 @@ app.all('*', (req, res, next) => {
 });
 app.use(errorGlobal);
 
-// process.on('uncaughtException', (err) => {
-//   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-//   console.log(err.name, err.message);
-//   process.exit(1);
-// });
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
 //4)
-mongoose
-  .connect(process.env.DATABASE_LOCAL)
-  .then((result) => {
-    app.listen(process.env.PORT, () => {
-      console.log(
-        `Example app listening at http://localhost:${process.env.PORT}
-Example app listening at http://localhost:${process.env.PORT}/docs`,
-      );
+if (process.env.NODE_ENV === 'development') {
+  mongoose
+    .connect(process.env.DATABASE_LOCAL)
+    .then((result) => {
+      app.listen(process.env.PORT, () => {
+        console.log(
+          `Example app listening at http://localhost:${process.env.PORT}
+Example app listening at http://localhost:${process.env.PORT}/docs`
+        );
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
-  })
-  .catch((err) => {
-    console.log(err);
+} else {
+  mongoose
+    .connect(process.env.DATABASE)
+    .then((result) => {
+      app.listen(process.env.PORT || port, () => {
+        console.log(`server is raning on port ${process.env.PORT}`);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  app.use((req, res) => {
+    res.redirect('/');
   });
+}
 
-// process.on('unhandledRejection', (err) => {
-//   console.log('UNHANDLED REJECTION! 💥 Shutting down...');
-//   console.log(err.name, err.message);
-//   server.close(() => {
-//     process.exit(1);
-//   });
-// });
-// process.on('SIGTERM', () => {
-//   console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
-//   server.close(() => {
-//     console.log('💥 Process terminated!');
-//   });
-// });
+process.on('unhandledRejection', (err) => {
+  console.log('UNHANDLED REJECTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  server.close(() => {
+    process.exit(1);
+  });
+});
+process.on('SIGTERM', () => {
+  console.log('👋 SIGTERM RECEIVED. Shutting down gracefully');
+  server.close(() => {
+    console.log('💥 Process terminated!');
+  });
+});
+// mongodb+srv://Mas:123454321az@cluster0.kjar7mz.mongodb.net/DatabaseEduHub?retryWrites=true&w=majority

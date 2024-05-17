@@ -1326,7 +1326,7 @@
 					"response": []
 				},
 				{
-					"name": "update  Copy",
+					"name": "setRsult",
 					"request": {
 						"auth": {
 							"type": "bearer",

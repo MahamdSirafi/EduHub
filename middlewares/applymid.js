@@ -1,4 +1,4 @@
-const Apply = require('../models/applayModel');
+const Apply = require('../models/applyModel');
 const Not = require('../models/notificationModel');
 const course = require('../models/courseModel');
 const catchAsync = require('../utils/catchAsync');

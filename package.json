@@ -33,6 +33,7 @@
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "start:pro": "set NODE_ENV=production && node app.js"
   }
 }

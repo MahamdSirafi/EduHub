@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const applaySchema = new mongoose.Schema(
+const applySchema = new mongoose.Schema(
   {
     user: {
       required: [true, 'must enter user'],
@@ -27,5 +27,5 @@ const applaySchema = new mongoose.Schema(
     versionKey: false,
   }
 );
-const Applay = mongoose.model('Applay', applaySchema);
+const Applay = mongoose.model('Apply', applySchema);
 module.exports = Applay;

@@ -1,4 +1,4 @@
-const applayController = require('../controllers/applayController');
+const applayController = require('../controllers/applyController');
 const authMiddlewers = require('./../middlewares/authMiddlewers');
 const applymid = require('./../middlewares/applymid');
 const dynamicMiddleware = require('./../middlewares/dynamicMiddleware');
