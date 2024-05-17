@@ -56,13 +56,11 @@ The project includes robust error handling mechanisms to gracefully handle and r
 
 ## Database Seed
 
-- create an admin user in the database by 
+- create an admin user in the database by
 
 ```
-$ node seeds.js
-
+$ npm run seed:dev
 ```
-
 
 ## Install
 
@@ -110,25 +108,31 @@ NODE_ENV=development
 
 PORT=7000
 
+ADMIN_EMAIL=AAA@gmail.com
+
+ADMIN_PASSWORD=##########
+
 DATABASE_LOCAL=mongodb://127.0.0.1:27017/DatabaseEduHub
 
-JWT_SECRET=asjdhgjed2187yhdkjawh
+DATABASE=mongodb+srv://BBBVVV:qwertytrewq@cluster0.kjar7mz.mongodb.net/DatabaseEduHub
+
+JWT_SECRET=###########################
 
 JWT_EXPIRES_IN=90d
 
 JWT_COOKIE_EXPIRES_IN=90
 
-SERVICE_EMIL=Sendgrid
+SERVICE_EMIL=
 
 EMAIL_HOST=sandbox.smtp.mailtrap.io
 
-EMAIL_PORT=222
+EMAIL_PORT=587
 
-EMAIL_USERNAME=sjhajd
+EMAIL_USERNAME=asfasfasfs
 
-EMAIL_PASSWORD=askbhfajs
+EMAIL_PASSWORD=##################
 
-EMAIL_FROM=test@gmail.com
+EMAIL_FROM=mas@gmail.com
 
 GMAIL_USERNAME=
 

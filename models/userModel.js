@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
           ? false
           : [true, 'Please tell us your sex!'];
       },
-      enum: ["male", "female"],
+      enum: ['male', 'female'],
       trim: true,
     },
     address: {
@@ -45,18 +45,12 @@ const userSchema = new mongoose.Schema(
       },
       trim: true,
     },
+
     subject: {
-      type: Array,
-      required: function () {
-        return this.role != 'teacher'
-          ? false
-          : [true, 'Please tell us your subject!'];
-      },
-      select: function () {
-        return this.role == 'teacher' ? true : false;
-      },
-      trim: true,
+      type: [String],
+      default: undefined,
     },
+
     email: {
       type: String,
       required: [true, 'Please provide your email'],

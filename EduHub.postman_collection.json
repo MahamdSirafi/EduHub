@@ -26,7 +26,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"user\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"age\": 22,\r\n  \"specialization\": \"info\",\r\n  \"sex\": \"man\",\r\n  \"address\": \"syria\",\r\n  \"password\": \"123454321\"\r\n}",
+							"raw": "{\r\n  \"name\": \"user\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"age\": 22,\r\n  \"specialization\": \"info\",\r\n  \"sex\": \"male\",\r\n  \"address\": \"syria\",\r\n  \"password\": \"123454321\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -68,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"teacher\",\r\n  \"email\": \"teacher@gmail.com\",\r\n  \"age\": 42,\r\n  \"specialization\": \"info\",\r\n  \"sex\": \"man\",\r\n  \"address\": \"syria\",\r\n  \"subject\": [\"wep\",\"sss\"],\r\n  \"password\": \"123454321\",\r\n  \"role\":\"teacher\"\r\n}",
+							"raw": "{\r\n  \"name\": \"teacher\",\r\n  \"email\": \"teacher@gmail.com\",\r\n  \"age\": 42,\r\n  \"specialization\": \"info\",\r\n  \"sex\": \"male\",\r\n  \"address\": \"syria\",\r\n  \"subject\": [\"wep\",\"android\"],\r\n  \"password\": \"123454321\",\r\n  \"role\":\"teacher\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -430,7 +430,7 @@
 					"response": []
 				},
 				{
-					"name": "get all",
+					"name": "get all user",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -445,7 +445,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/users",
+							"raw": "http://localhost:7000/api/v1.0.0/users?role=user",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -455,6 +455,49 @@
 								"api",
 								"v1.0.0",
 								"users"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all teacher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/users?role=teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"users"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "teacher"
+								}
 							]
 						}
 					},
@@ -700,7 +743,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/courses/mine",
+							"raw": "http://localhost:7000/api/v1.0.0/courses",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -709,8 +752,7 @@
 							"path": [
 								"api",
 								"v1.0.0",
-								"courses",
-								"mine"
+								"courses"
 							]
 						}
 					},
@@ -732,7 +774,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/courses",
+							"raw": "http://localhost:7000/api/v1.0.0/courses/mine",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -741,7 +783,8 @@
 							"path": [
 								"api",
 								"v1.0.0",
-								"courses"
+								"courses",
+								"mine"
 							]
 						}
 					},
@@ -853,6 +896,39 @@
 					"response": []
 				},
 				{
+					"name": "get videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7000/api/v1.0.0/courses/6645eae9743f374ea4445173/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7000",
+							"path": [
+								"api",
+								"v1.0.0",
+								"courses",
+								"6645eae9743f374ea4445173",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update ",
 					"request": {
 						"auth": {
@@ -869,7 +945,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"user\"\r\n}",
+							"raw": "{\r\n  \"name\": \"szdfsf\",\r\n  \"classification\": \"sss\",\r\n  \"reference\":[{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"},{\"description\":\"dsgsdgsd\",\r\n  \"link\":\"http://sss.com\"}] ,\r\n \"videos\":[\r\n    {\r\n    \"name\":\"dsgsdgsd\",\r\n    \"video\":\"http://sss.com\",\r\n    \"level\":\"midel\",\r\n    \"questions\":[{\r\n      \"question\" :\"question 1\",\r\n      \"A\":\"a\",\r\n      \"B\":\"b\",\r\n      \"C\":\"c\",\r\n      \"D\":\"d\",\r\n      \"answer\":\"b\"\r\n     },\r\n     {\r\n     \"question\" :\"question 2\",\r\n     \"A\":\"a\",\r\n     \"B\":\"b\",\r\n     \"C\":\"c\",\r\n     \"D\":\"d\",\r\n     \"answer\":\"c\"\r\n     }\r\n    ]\r\n    },\r\n    {\"name\":\"name\",\r\n    \"video\":\"http://sss.com\",\r\n     \"level\":\"midel\",\r\n     \"questions\":[{\r\n        \"question\" :\"question 1\",\r\n        \"A\":\"a\",\r\n        \"B\":\"b\",\r\n        \"C\":\"c\",\r\n        \"D\":\"d\",\r\n        \"answer\":\"b\"\r\n        },\r\n        {\r\n         \"question\" :\"question 2\",\r\n         \"A\":\"a\",\r\n         \"B\":\"b\",\r\n         \"C\":\"c\",\r\n         \"D\":\"d\",\r\n         \"answer\":\"c\"\r\n        }\r\n        ]\r\n}\r\n],\r\n  \"test\":{\r\n      \"name\":\"name test\",\r\n      \"rate\":90,\r\n        \"questions\":[{\r\n        \"question\" :\"question 1\",\r\n        \"A\":\"a\",\r\n        \"B\":\"b\",\r\n        \"C\":\"c\",\r\n        \"D\":\"d\",\r\n        \"answer\":\"b\"\r\n        },\r\n        {\r\n         \"question\" :\"question 2\",\r\n         \"A\":\"a\",\r\n         \"B\":\"b\",\r\n         \"C\":\"c\",\r\n         \"D\":\"d\",\r\n         \"answer\":\"c\"\r\n        }\r\n        ]\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1342,7 +1418,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"complated\":true\r\n}",
+							"raw": "{\r\n    \"rasult\":55\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1350,7 +1426,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:7000/api/v1.0.0/applies/6645eb4c2e350bfa25ac1cee",
+							"raw": "http://localhost:7000/api/v1.0.0/applies/6645eb4c2e350bfa25ac1cee/setRsult",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1360,7 +1436,8 @@
 								"api",
 								"v1.0.0",
 								"applies",
-								"6645eb4c2e350bfa25ac1cee"
+								"6645eb4c2e350bfa25ac1cee",
+								"setRsult"
 							]
 						}
 					},

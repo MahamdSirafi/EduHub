@@ -26,21 +26,25 @@ router
   );
 router
   .route('/:id')
-  .get(
-    dynamicMiddleware.addQuery('fields', '-test'),
-    applymid.isApply,
-    courseController.getcourse
-  )
+  .get(authMiddlewers.restrictTo('teacher'), courseController.getcourse)
   .patch(authMiddlewers.restrictTo('teacher'), courseController.updatecourse)
   .delete(
     authMiddlewers.restrictTo('teacher', 'admin'),
     courseController.deletecourse
   );
 router
+  .route('/:id/videos')
+  .get(
+    authMiddlewers.restrictTo('user'),
+    applymid.isApply,
+    courseController.getcourse
+  );
+router
   .route('/:id/test')
   .get(
     applymid.iscomplated,
+    dynamicMiddleware.addQuery('_id', 'id'),
     dynamicMiddleware.addQuery('fields', 'test'),
-    courseController.getcourse
+    courseController.getAllcourse
   );
 module.exports = router;

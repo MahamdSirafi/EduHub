@@ -121,9 +121,6 @@ Example app listening at http://localhost:${process.env.PORT}/docs`
     .catch((err) => {
       console.log(err);
     });
-  app.use((req, res) => {
-    res.redirect('/');
-  });
 }
 
 process.on('unhandledRejection', (err) => {

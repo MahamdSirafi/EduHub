@@ -10,7 +10,7 @@ exports.isApply = catchAsync(async (req, res, next) => {
   });
 
   if (!doc) {
-    return next(new AppError('is not apply', 400));
+    return next(new AppError('you are not apply', 400));
   }
   next();
 });
@@ -23,10 +23,10 @@ exports.iscomplated = catchAsync(async (req, res, next) => {
   });
 
   if (!doc) {
-    return next(new AppError('is not apply', 400));
+    return next(new AppError('you are not apply in this course', 400));
   }
   if (doc.complated == false) {
-    return next(new AppError('is not complated', 400));
+    return next(new AppError('you are not complated this course', 400));
   }
   next();
 });

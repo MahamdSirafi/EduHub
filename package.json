@@ -34,6 +34,8 @@
   },
   "scripts": {
     "start": "nodemon app.js",
-    "start:pro": "set NODE_ENV=production && node app.js"
+    "start:pro": "set NODE_ENV=production && node app.js",
+    "seed:pro": "set NODE_ENV=production && node seeds.js",
+    "seed:dev": "node seeds.js"
   }
 }
