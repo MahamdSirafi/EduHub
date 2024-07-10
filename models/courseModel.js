@@ -12,9 +12,21 @@ const courseSchema = new mongoose.Schema(
       required: [true, 'must enter name'],
       type: String,
     },
+    image: {
+      required: [true, 'must enter image'],
+      type: String,
+    },
     classification: {
       required: [true, 'must enter classification'],
       type: String,
+    },
+    suggested: {
+      type: Boolean,
+      default: false,
+    },
+    popular: {
+      type: Boolean,
+      default: false,
     },
     ratingavg: {
       type: Number,
