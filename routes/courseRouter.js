@@ -29,7 +29,7 @@ router
   .get(authMiddlewers.restrictTo('teacher'), courseController.getcourse)
   .patch(authMiddlewers.restrictTo('teacher'), courseController.updatecourse)
   .delete(
-    authMiddlewers.restrictTo('teacher', 'admin'),
+    // authMiddlewers.restrictTo('teacher', 'admin'),
     courseController.deletecourse
   );
 router

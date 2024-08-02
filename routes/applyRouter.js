@@ -28,8 +28,8 @@ router
   .route('/:id')
   .get(applayController.getapplay)
   .patch(
-    authMiddlewers.restrictTo('teacher'),
-    applymid.tasneem,
+    // authMiddlewers.restrictTo('teacher'),
+    // applymid.tasneem,
     applayController.updateapplay
   )
   .delete(authMiddlewers.restrictTo('teacher'), applayController.deleteapplay);
